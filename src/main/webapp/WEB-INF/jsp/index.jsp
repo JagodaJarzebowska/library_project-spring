@@ -24,27 +24,56 @@
 </nav>
 
 <div class="container">
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Book name</th>
-            <th>Author</th>
-            <th>Date of borrow</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="book" items="${books}">
-            <tr>
-                <td>${book.id}</td>
-                <td>${book.bookName}</td>
-                <td>${book.author}</td>
-                <td>${book.dateOfBorrow}</td>
-            </tr>
 
-        </c:forEach>
-        </tbody>
-    </table>
+    <c:choose>
+        <c:when test="${mode== 'BOOK_VIEW'}">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Book name</th>
+                    <th>Author</th>
+                    <th>Date of borrow</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="book" items="${books}">
+                    <tr>
+                        <td>${book.id}</td>
+                        <td>${book.bookName}</td>
+                        <td>${book.author}</td>
+                        <td>${book.dateOfBorrow}</td>
+                        <td><a href="update?id=${book.id}"><div class="glyphicon glyphicon-pencil"></div> </a></td>
+                    </tr>
+
+                </c:forEach>
+                </tbody>
+            </table>
+        </c:when>
+
+        <c:when test="${mode == 'BOOK_EDIT'}">
+            <form>
+                <input type="hidden" class="form-control" value="${book.id}" name="id" id="id">
+
+                <div class="form-group">
+                    <label for="bookName">Book Name</label>
+                    <input type="text" class="form-control" value="${book.bookName}" name="bookName" id="bookName">
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" class="form-control"  value="${book.author}" name="author" id="author">
+                </div>
+                <div class="form-group">
+                    <label for="dateOfBorrow">Date of borrow</label>
+                    <input type="date" class="form-control"  value="${book.dateOfBorrow}" name="dateOfBorrow" id="dateOfBorrow">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </c:when>
+
+    </c:choose>
+
 </div>
 
 </body>

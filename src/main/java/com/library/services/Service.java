@@ -3,10 +3,9 @@ package com.library.services;
 import com.library.dao.DaoRepository;
 import com.library.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @org.springframework.stereotype.Service
 public class Service {
@@ -24,5 +23,9 @@ public class Service {
 
     public void delete(long id){
         daoRepository.deleteById(id);
+    }
+
+    public Book  findOne(long id){
+        return daoRepository.findById(id).orElse(null);
     }
 }
