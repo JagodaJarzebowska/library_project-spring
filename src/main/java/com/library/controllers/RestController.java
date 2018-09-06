@@ -15,11 +15,6 @@ public class RestController {
     @Autowired
     private Service service;
 
-    @GetMapping(value = "/")
-    public String hello(){
-        return "Hello world!";
-    }
-
     @GetMapping("/findAll")
     public Collection<Book> getAllBooks(){
         return service.findAllBooks();
