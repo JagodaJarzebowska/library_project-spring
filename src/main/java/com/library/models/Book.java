@@ -16,6 +16,7 @@ public class Book {
     private String author;
 
     @Column(name = "date_of_borrow")
+    @Temporal(TemporalType.DATE)
     private Date dateOfBorrow;
 
     public long getId() {

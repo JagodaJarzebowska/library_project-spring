@@ -21,4 +21,8 @@ public class Service {
         }
         return books;
     }
+
+    public void delete(long id){
+        daoRepository.deleteById(id);
+    }
 }
