@@ -14,7 +14,7 @@ public class Service {
     @Autowired
     private DaoRepository daoRepository;
 
-    private Collection<Book> findAllBooks(){
+    public Collection<Book> findAllBooks(){
         List<Book> books =  new ArrayList<>();
         for (Book book : daoRepository.findAll()) {
             books.add(book);
