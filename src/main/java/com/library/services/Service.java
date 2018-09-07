@@ -28,4 +28,10 @@ public class Service {
     public Book  findOne(long id){
         return daoRepository.findById(id).orElse(null);
     }
+
+    public void save(Book book){
+        daoRepository.save(book);
+    }
+
+
 }

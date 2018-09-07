@@ -14,10 +14,10 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">My project</a>
+            <a class="navbar-brand" href="/">My project</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">All books</a></li>
+            <li class="active"><a href="/">All books</a></li>
             <li><a href="#">New book</a></li>
         </ul>
     </div>
@@ -53,7 +53,7 @@
         </c:when>
 
         <c:when test="${mode == 'BOOK_EDIT'}">
-            <form>
+            <form action="save" method="post">
                 <input type="hidden" class="form-control" value="${book.id}" name="id" id="id">
 
                 <div class="form-group">
