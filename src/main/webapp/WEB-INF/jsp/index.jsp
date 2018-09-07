@@ -18,7 +18,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="/">All books</a></li>
-            <li><a href="#">New book</a></li>
+            <li><a href="/addBook">New book</a></li>
         </ul>
     </div>
 </nav>
@@ -52,7 +52,7 @@
             </table>
         </c:when>
 
-        <c:when test="${mode == 'BOOK_EDIT'}">
+        <c:when test="${mode == 'BOOK_EDIT' || mode == 'BOOK_ADD' }">
             <form action="save" method="post">
                 <input type="hidden" class="form-control" value="${book.id}" name="id" id="id">
 

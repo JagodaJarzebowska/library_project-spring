@@ -9,6 +9,8 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -38,13 +40,21 @@ public class Controller {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute Book book, BindingResult bindingResult, HttpServletRequest request){
+    public void save(@ModelAttribute Book book, BindingResult bindingResult, HttpServletRequest request, HttpServletResponse response) throws IOException {
         service.save(book);
-        book = null;
-        request.setAttribute("books", null);
         request.setAttribute("books", service.findAllBooks());
         request.setAttribute("mode", "BOOK_VIEW");
+        response.sendRedirect("/");
+    }
+
+    @GetMapping("/addBook")
+    public String addBook(HttpServletRequest request){
+        request.setAttribute("mode", "BOOK_ADD");
         return "index";
     }
+
+
+
+
 
 }
