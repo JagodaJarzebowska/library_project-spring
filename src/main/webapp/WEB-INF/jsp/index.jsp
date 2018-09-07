@@ -35,6 +35,7 @@
                     <th>Author</th>
                     <th>Date of borrow</th>
                     <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -45,6 +46,7 @@
                         <td>${book.author}</td>
                         <td>${book.dateOfBorrow}</td>
                         <td><a href="update?id=${book.id}"><div class="glyphicon glyphicon-pencil"></div> </a></td>
+                        <td><a href="deleteBook?id=${book.id}"><div class="glyphicon glyphicon-trash"></div> </a></td>
                     </tr>
 
                 </c:forEach>

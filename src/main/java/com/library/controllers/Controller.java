@@ -53,6 +53,11 @@ public class Controller {
         return "index";
     }
 
+    @GetMapping("/deleteBook")
+    public void deleteBook(@RequestParam long id, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        service.delete(id);
+        response.sendRedirect("/");
+    }
 
 
 
